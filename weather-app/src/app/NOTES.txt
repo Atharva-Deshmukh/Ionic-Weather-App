@@ -2,12 +2,12 @@
 __________________________________________________________________________
 
 [[DONE]] --> Home page with UI and services
---> Login Page
+[[DONE]] --> Login Page
 [[DONE]]  --> SignUp Page with UI, form validation and services
 --> User Landing Page
-    --> Auth guard
+    [[DONE]] --> Auth guard
     --> sidebar with user name
     --> Weather details in content
     --> Also try to use tables
-    --> Logout
+    [[DONE]] --> Logout
 

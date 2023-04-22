@@ -52,4 +52,23 @@
   border-radius: 20px;
 }
 
+ion-popover {
+  --background: rgba(94, 212, 232, 0.6);
+  --backdrop-opacity: 0.6;
+  --box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.6);
+  --color: rgb(206, 46, 231);
+  --width: 300px;
+  font-weight: bolder;
+}
+
+ion-popover ion-content {
+  --background: rgba(248, 228, 116, 0.6);
+  color:rgb(128, 229, 108);
+  font-weight: bolder;
+}
+
+ion-popover::part(backdrop) {
+  background-color: rgb(149, 156, 232);
+}
+
 

@@ -34,8 +34,19 @@
           </ion-header>
           <ion-content class="ion-padding">
             <h1 style="font-weight: bolder;"><ion-icon name="home-outline"></ion-icon>Home</h1>
-            <h1 style="font-weight: bolder"><ion-icon name="person-circle-outline"></ion-icon>My Profile</h1>
+
+            <h1 style="font-weight: bolder" id="trigger-button"><ion-icon name="person-circle-outline"></ion-icon>My Profile</h1>
+            <ion-popover trigger="trigger-button">
+              <ng-template>
+                <ion-content class="ion-padding">
+                  User Name -> {{userName}}<br>
+                  User email -> {{useremail}}
+                </ion-content>
+              </ng-template>
+            </ion-popover>
+
             <h1 style="font-weight: bolder;"><ion-icon name="list-outline"></ion-icon>My History</h1>
+
             <h1 style="font-weight: bolder; color: red" (click)="logout()"><ion-icon name="log-out-outline"></ion-icon> Logout</h1>
           </ion-content>
         </ion-menu>
