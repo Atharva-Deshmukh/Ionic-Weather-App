@@ -24,3 +24,32 @@
 @import "@ionic/angular/css/text-alignment.css";
 @import "@ionic/angular/css/text-transformation.css";
 @import "@ionic/angular/css/flex-utils.css";
+
+.form {
+  margin-top: 25%;
+  width: 80%;
+  align-content: center;
+  margin-left: 12%;
+}
+
+.form button {
+  border-radius: 33px;
+  border: 3px solid black;
+  color: rgb(250, 247, 247);
+  font-weight: bolder;
+  cursor: pointer;
+  background-color: orange;
+  margin-left: 28%;
+  height: 50px;
+  width: 150px;
+}
+
+.form ion-input{
+  border: 3px solid black;
+  color: black;
+  size: 80%;
+  text-align: center;
+  border-radius: 20px;
+}
+
+
