@@ -5,3 +5,35 @@
     </ion-title>
   </ion-toolbar>
 </ion-header>
+
+<ion-content [fullscreen]="true">
+
+  <form [formGroup]="myForm" class="form">
+
+    <!-- Email and Validation -->
+    <ion-item>
+      <ion-input type="email" formControlName="email" placeholder="Enter email"></ion-input>
+    </ion-item>
+
+    <ion-item *ngIf="myForm.controls['email'].invalid && (myForm.controls['email'].dirty || myForm.controls['email'].touched)">
+      <ion-label color="danger" position="stacked">Email is invalid</ion-label>
+    </ion-item>
+
+    <br><br>
+
+    <!-- Password and Validation -->
+    <ion-item>
+      <ion-input type="password" formControlName="password" placeholder="Enter Password"></ion-input>
+    </ion-item>
+
+    <ion-item *ngIf="myForm.controls['password'].invalid && (myForm.controls['password'].dirty || myForm.controls['password'].touched)">
+      <ion-label color="danger" position="stacked">Password is required</ion-label>
+    </ion-item>
+
+    <br>
+
+    <button (click)="login(myForm.value)">SignUp</button>
+
+  </form>
+
+</ion-content>

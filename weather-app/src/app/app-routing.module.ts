@@ -2,6 +2,8 @@ import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 import { LoginPageComponent } from './pages/login-page/login-page.component';
 import { SignupPageComponent } from './pages/signup-page/signup-page.component';
+import { UserdashboardComponent } from './pages/userdashboard/userdashboard.component';
+import { UserGuardGuard } from './Authguards/user-guard.guard';
 
 const routes: Routes = [
   {
@@ -20,6 +22,11 @@ const routes: Routes = [
   {
     path: 'signup',
     component: SignupPageComponent
+  },
+  {
+    path: 'user-dashboard',
+    component: UserdashboardComponent,
+    canActivate: [UserGuardGuard]
   },
 ];
 
