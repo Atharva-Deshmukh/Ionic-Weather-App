@@ -13,6 +13,12 @@ constructor(private userService: UsersService) {}
   canActivate(
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
+
+      // keep logged in if user is logged in
+    if(localStorage.getItem('user')) {
+      return true;
+    }
+
     return this.userService.loginSuccess$;
   }
 

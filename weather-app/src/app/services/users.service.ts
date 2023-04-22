@@ -4,6 +4,7 @@ import { User } from '../User';
 import { Router } from '@angular/router';
 import { BehaviorSubject } from 'rxjs';
 import { Login } from '../Login';
+import { stringify } from 'querystring';
 
 @Injectable({
   providedIn: 'root'
@@ -23,13 +24,18 @@ export class UsersService {
     });
   }
 
-  loginService(data: Login) {
+  loginService(data: any) {
     return this.http.get(`http://localhost:3000/users/?email=${data.email}&password=${data.password}`, {observe:'response'}).subscribe((result: any) => {
     if(result && result.body && result.body.length) {
       console.warn('login SUCCESSFULL and user -> ', result);
       this.loginSuccess$.next(true);
       console.warn('this.loginSuccess$.next(true) -> ', this.loginSuccess$.value);
+
+      localStorage.setItem('user',JSON.stringify(result.body))
+
       this.router.navigate(['user-dashboard']);
+    } else {
+      console.warn('login FAILED');
     }
     });
 

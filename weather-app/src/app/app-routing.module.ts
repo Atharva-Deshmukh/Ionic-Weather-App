@@ -4,6 +4,7 @@ import { LoginPageComponent } from './pages/login-page/login-page.component';
 import { SignupPageComponent } from './pages/signup-page/signup-page.component';
 import { UserdashboardComponent } from './pages/userdashboard/userdashboard.component';
 import { UserGuardGuard } from './Authguards/user-guard.guard';
+import { HomePage } from './home/home.page';
 
 const routes: Routes = [
   {
@@ -12,8 +13,7 @@ const routes: Routes = [
   },
   {
     path: '',
-    redirectTo: 'home',
-    pathMatch: 'full'
+   component: HomePage
   },
   {
     path: 'login',

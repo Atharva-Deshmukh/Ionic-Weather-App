@@ -1,3 +1,44 @@
-<p>
-  userdashboard works!
-</p>
+<ion-header [translucent]="true" style="background-color: aquamarine;">
+  <ion-toolbar>
+    <ion-title style="text-align: center; color: rgb(15, 181, 125); font-weight: bolder;">
+      Weather App - User DashBoard Component
+    </ion-title>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Menu</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<div class="ion-page" id="main-content">
+  <ion-header>
+    <ion-toolbar>
+      <ion-buttons slot="start">
+        <ion-menu-button></ion-menu-button>
+      </ion-buttons>
+      <ion-title>Menu</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <ion-content class="ion-padding">
+    Tap the button in the toolbar to open the menu.
+  </ion-content>
+</div>
+
+<ion-content>
+  <!-- side menu -->
+        <ion-menu [type]="menuType" content-id="main-content">
+          <ion-header>
+            <ion-menu-toggle>
+              <button style="background-color: rgb(242, 185, 79); font-weight: bolder; color: black; border-radius: 23px; height: 60px; width: 150px;"><h1>Close Menu</h1></button>
+            </ion-menu-toggle>
+          </ion-header>
+          <ion-content class="ion-padding">
+            <h1 style="font-weight: bolder;"><ion-icon name="home-outline"></ion-icon>Home</h1>
+            <h1 style="font-weight: bolder"><ion-icon name="person-circle-outline"></ion-icon>My Profile</h1>
+            <h1 style="font-weight: bolder;"><ion-icon name="list-outline"></ion-icon>My History</h1>
+            <h1 style="font-weight: bolder; color: red" (click)="logout()"><ion-icon name="log-out-outline"></ion-icon> Logout</h1>
+          </ion-content>
+        </ion-menu>
+  </ion-content>
+
+
