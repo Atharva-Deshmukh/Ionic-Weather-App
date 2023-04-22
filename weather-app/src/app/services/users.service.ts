@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { User } from '../User';
 import { Router } from '@angular/router';
 import { BehaviorSubject } from 'rxjs';
+import { Login } from '../Login';
 
 @Injectable({
   providedIn: 'root'
@@ -22,9 +23,9 @@ export class UsersService {
     });
   }
 
-  loginService(data: User) {
-    return this.http.get(`http://localhost:3000/users/?${data.email}&${data.password}`).subscribe((result) => {
-    if(result) {
+  loginService(data: Login) {
+    return this.http.get(`http://localhost:3000/users/?email=${data.email}&password=${data.password}`, {observe:'response'}).subscribe((result: any) => {
+    if(result && result.body && result.body.length) {
       console.warn('login SUCCESSFULL and user -> ', result);
       this.loginSuccess$.next(true);
       console.warn('this.loginSuccess$.next(true) -> ', this.loginSuccess$.value);

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
-import { User } from 'src/app/User';
+import { Login } from 'src/app/Login';
 import { UsersService } from 'src/app/services/users.service';
 
 @Component({
@@ -22,7 +22,7 @@ export class LoginPageComponent  implements OnInit {
 
 }
 
-  login(data: User) {
+  login(data: Login) {
     console.warn('Login credentials -> ', data);
     this.userService.loginService(data);
   }
