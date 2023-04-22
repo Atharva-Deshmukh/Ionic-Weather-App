@@ -1,20 +1,21 @@
-<ion-header [translucent]="true">
+<ion-header [translucent]="true" style="background-color: aquamarine;">
   <ion-toolbar>
-    <ion-title>
-      Blank
+    <ion-title class="title">
+      Weather App
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<ion-content [fullscreen]="true" class="ion-padding">
 
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
-  </div>
+  <ion-card slot="fixed" color="warning" class="card">
+    <ion-card-header>
+      <ion-card-title><img src="https://cdn-icons-png.flaticon.com/512/777/777198.png"></ion-card-title>
+    </ion-card-header>
+
+    <ion-button (click)="login()">Login</ion-button>
+    <ion-button (click)="signUp()">Signup</ion-button>
+  </ion-card>
+
+
 </ion-content>
