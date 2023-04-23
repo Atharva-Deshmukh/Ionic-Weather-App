@@ -23,6 +23,7 @@ export class LoginPageComponent  implements OnInit {
 }
 
   login(data: Login) {
+
     console.warn('Login credentials -> ', data);
     this.userService.loginService(data);
   }

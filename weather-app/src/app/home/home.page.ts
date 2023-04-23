@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { UsersService } from '../services/users.service';
 
 @Component({
   selector: 'app-home',
@@ -8,10 +9,17 @@ import { Router } from '@angular/router';
 })
 export class HomePage {
 
-  constructor(private router: Router) {}
+  constructor(private router: Router, private userService: UsersService) {}
 
   login() {
-    this.router.navigate(['login']);
+
+    if(localStorage.getItem('user')) {
+      this.userService.loginSuccess$.next(true);
+      this.router.navigate(['user-dashboard']);
+    }
+    else{
+      this.router.navigate(['login']);
+    }
   }
 
   signUp() {

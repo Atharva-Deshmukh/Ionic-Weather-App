@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { HttpClient } from '@angular/common/http';
-import { observable } from 'rxjs';
+import { UsersService } from 'src/app/services/users.service';
 
 @Component({
   selector: 'app-userdashboard',
@@ -10,7 +9,7 @@ import { observable } from 'rxjs';
 })
 export class UserdashboardComponent  implements OnInit {
 
-  constructor(private router: Router, private http: HttpClient) { }
+  constructor(private router: Router, private userService: UsersService) { }
 
   optionSelected: any;
   getOptionValue(event: any) {
@@ -70,14 +69,8 @@ export class UserdashboardComponent  implements OnInit {
     this.lon =  73.8567;
     this.APIkey = '5c86033098ae966dd0e9f3ce5aefa8be';
 
-    return this.http.get(`https://api.openweathermap.org/data/2.5/weather/?lat=${this.lat}&lon=${this.lon}&appid=${this.APIkey}`).subscribe((result) => {
-      if(result) {
-        console.warn('weather data -> ', result);
-        this.weatherData = result;
-        console.warn('main -> ',this.weatherData.main);
+    this.userService.getWeatherService(this.lat, this.lon, this.APIkey);
 
-      }
-    });
   }
 
 }
