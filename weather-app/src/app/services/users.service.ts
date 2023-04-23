@@ -52,7 +52,7 @@ export class UsersService {
     console.warn('this.lon$.value -> ', this.lon$.value);
     console.warn('this.APIkey$.value -> ', this.APIkey$.value);
 
-    return this.http.get(`https://api.openweathermap.org/data/2.5/weather?lat=${this.lat$.value}&lon=${this.lon$.value}&appid=${this.APIkey$.getValue}`).subscribe((result) => {
+    return this.http.get(`https://api.openweathermap.org/data/2.5/weather?lat=${this.lat$.value}&lon=${this.lon$.value}&appid=${this.APIkey$.getValue()}`).subscribe((result) => {
       if(result) {
         console.warn('weather data -> ', result);
         this.weatherData = result;
