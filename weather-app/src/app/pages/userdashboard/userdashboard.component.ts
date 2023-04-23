@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { HttpClient } from '@angular/common/http';
+import { observable } from 'rxjs';
 
 @Component({
   selector: 'app-userdashboard',
@@ -8,7 +10,7 @@ import { Router } from '@angular/router';
 })
 export class UserdashboardComponent  implements OnInit {
 
-  constructor(private router: Router) { }
+  constructor(private router: Router, private http: HttpClient) { }
 
   userDataString: any;
   userName: string = '';
@@ -32,9 +34,40 @@ export class UserdashboardComponent  implements OnInit {
 
   menuType: string = 'overlay';
 
+  // API key 0629ec7ef38cbe8dd23d15adb0b36f5f
+
+  // lat long PUNE -> 18.5204° N, 73.8567° E
+  // lat long MUMBAI -> 19.0760° N, 72.8777° E
+  // lat long NAGPUR -> 21.1458° N, 79.0882° E
+  // lat long CHANDRAPUR -> 19.9615° N, 79.2961° E
+
+  // https://api.openweathermap.org/data/2.5/weather?lat={lat}&lon={lon}&appid={API key}
+
+
   logout() {
     localStorage.removeItem('user');
     this.router.navigate(['']);
+  }
+
+  lat: any;
+  lon: any;
+  APIkey: any;
+
+  weatherData: any;
+
+  getPuneWeather() {
+    this.lat = 18.5204;
+    this.lon =  73.8567;
+    this.APIkey = '5c86033098ae966dd0e9f3ce5aefa8be';
+
+    return this.http.get(`https://api.openweathermap.org/data/2.5/weather/?lat=${this.lat}&lon=${this.lon}&appid=${this.APIkey}`).subscribe((result) => {
+      if(result) {
+        console.warn('weather data -> ', result);
+        this.weatherData = result;
+        console.warn('main -> ',this.weatherData.main);
+
+      }
+    });
   }
 
 }
