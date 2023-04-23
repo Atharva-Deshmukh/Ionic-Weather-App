@@ -9,7 +9,7 @@ import { BehaviorSubject } from 'rxjs';
 })
 export class UsersService {
 
-  APIkey$: BehaviorSubject<string> = new BehaviorSubject<string>('5c86033098ae966dd0e9f3ce5aefa8be');
+  APIkey$: BehaviorSubject<string> = new BehaviorSubject<string>('');
   lat$: BehaviorSubject<number> = new BehaviorSubject<number>(0.00000);
   lon$: BehaviorSubject<number> = new BehaviorSubject<number>(0.00000);
   city$: BehaviorSubject<string> = new BehaviorSubject<string>('Enter City');
@@ -46,14 +46,13 @@ export class UsersService {
 
   }
 
-  getWeatherService(lat: number, lon: number, APIkey: string) {
+  getWeatherService() {
 
-    // UPDATE values from dashboard
-    this.lat$.next(lat);
-    this.lon$.next(lon);
-    this.APIkey$.next(APIkey);
+    console.warn('this.lat$.value -> ', this.lat$.value);
+    console.warn('this.lon$.value -> ', this.lon$.value);
+    console.warn('this.APIkey$.value -> ', this.APIkey$.value);
 
-    return this.http.get(`https://api.openweathermap.org/data/2.5/weather/?lat=${this.lat$}&lon=${this.lon$}&appid=${this.APIkey$}`).subscribe((result) => {
+    return this.http.get(`https://api.openweathermap.org/data/2.5/weather/?lat=${this.lat$.value}&lon=${this.lon$.value}&appid=${this.APIkey$.getValue}`).subscribe((result) => {
       if(result) {
         console.warn('weather data -> ', result);
         this.weatherData = result;

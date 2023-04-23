@@ -58,18 +58,16 @@ export class UserdashboardComponent  implements OnInit {
     this.router.navigate(['']);
   }
 
-  lat: any;
-  lon: any;
-  APIkey: any;
-
   weatherData: any;
 
   getPuneWeather() {
-    this.lat = 18.5204;
-    this.lon =  73.8567;
-    this.APIkey = '5c86033098ae966dd0e9f3ce5aefa8be';
 
-    this.userService.getWeatherService(this.lat, this.lon, this.APIkey);
+    // Update Pune data
+    this.userService.lat$.next(18.5204);
+    this.userService.lon$.next(73.8567);
+    this.userService.APIkey$.next('0b0649ebf5c62d3dfdf33995a7af6911');
+
+    this.userService.getWeatherService();
 
   }
 
