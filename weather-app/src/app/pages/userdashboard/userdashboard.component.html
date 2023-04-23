@@ -1,35 +1,23 @@
 <ion-header [translucent]="true" style="background-color: aquamarine;">
   <ion-toolbar>
     <ion-title style="text-align: center; color: rgb(15, 181, 125); font-weight: bolder;">
-      Weather App - User DashBoard Component
+      User DashBoard
     </ion-title>
     <ion-buttons slot="start">
-      <ion-menu-button></ion-menu-button>
+      <ion-menu-button style="width: 40px; height: 40px;" id="main-content" style="color: black; width: 40px; height: 40px;"></ion-menu-button>
     </ion-buttons>
-    <ion-title>Menu</ion-title>
+    <ion-buttons slot="end">
+      <ion-icon name="caret-back-outline" routerLink="" style="width: 30px; height: 30px; color: purple;"></ion-icon>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
-
-<div class="ion-page" id="main-content">
-  <ion-header>
-    <ion-toolbar>
-      <ion-buttons slot="start">
-        <ion-menu-button></ion-menu-button>
-      </ion-buttons>
-      <ion-title>Menu</ion-title>
-    </ion-toolbar>
-  </ion-header>
-  <ion-content class="ion-padding">
-    Tap the button in the toolbar to open the menu.
-  </ion-content>
-</div>
 
 <ion-content>
   <!-- side menu -->
         <ion-menu [type]="menuType" content-id="main-content">
           <ion-header>
             <ion-menu-toggle>
-              <button style="background-color: rgb(242, 185, 79); font-weight: bolder; color: black; border-radius: 23px; height: 60px; width: 150px;"><h1>Close Menu</h1></button>
+              <p style="font-weight: bolder; color: rgb(241, 174, 67);"><ion-icon name="close-circle-outline" style="width: 40px; height: 40px; margin-left: 43%;"></ion-icon></p>
             </ion-menu-toggle>
           </ion-header>
           <ion-content class="ion-padding">
@@ -43,19 +31,17 @@
               </ng-template>
             </ion-popover>
 
-            <h1 style="font-weight: bolder;"><ion-icon name="list-outline"></ion-icon>My History</h1>
-
             <h1 style="font-weight: bolder; color: red" (click)="logout()"><ion-icon name="home-outline"></ion-icon> Logout</h1>
           </ion-content>
         </ion-menu>
 
-        <ion-list>
+        <ion-list style="margin-top: 30%; color: rgb(192, 93, 235); font-weight: bolder;">
           <ion-item>
             <ion-select aria-label="City" placeholder="Select Your City" (ionChange)="getOptionValue($event)">
-              <ion-select-option value="Pune">Pune</ion-select-option>
-              <ion-select-option value="Mumbai">Mumbai</ion-select-option>
-              <ion-select-option value="Nagpur">Nagpur</ion-select-option>
-              <ion-select-option value="Chandrapur">Chandrapur</ion-select-option>
+              <ion-select-option value="Pune">Pune Region</ion-select-option>
+              <ion-select-option value="Mumbai">Mumbai Region</ion-select-option>
+              <ion-select-option value="Nagpur">Nagpur Region</ion-select-option>
+              <ion-select-option value="Chandrapur">Chandrapur Region</ion-select-option>
             </ion-select>
           </ion-item>
       </ion-list>

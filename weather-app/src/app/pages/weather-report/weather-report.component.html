@@ -1,41 +1,54 @@
 <ion-header [translucent]="true" style="background-color: aquamarine;">
   <ion-toolbar>
     <ion-title style="text-align: center; color: rgb(15, 181, 125); font-weight: bolder;">
-      Weather App - weather Report Component
+      Weather Report
     </ion-title>
+    <ion-buttons slot="end">
+      <ion-icon name="caret-back-outline" routerLink="/user-dashboard" style="width: 30px; height: 30px; color: purple;"></ion-icon>
+      <ion-icon name="log-out-outline" routerLink="" style="width: 30px; height: 30px; color: rgb(243, 131, 75);"></ion-icon>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
 
-  <ion-card>
+  <ion-card style="background-color: rgb(245, 240, 241); margin-top: 23%; border: 3px solid black;">
 
     <ion-card-header>
-      <ion-card-title>City: {{ city }}</ion-card-title>
+      <ion-card-title style="color: rgb(135, 142, 244); font-weight: bolder;">City: {{ city }}</ion-card-title>
     </ion-card-header>
 
     <ion-card-content>
 
       <ion-grid>
+
         <ion-row>
+
           <ion-col>
-            <img src="http://openweathermap.org/img/wn/{{weatherIconId}}@2x.png" [alt]="description" />
+            <img src="http://openweathermap.org/img/wn/{{weatherIconId}}@2x.png" style="width: 80px; height: 80px;">
           </ion-col>
+
           <ion-col>
-            <h2>{{ temperature }}&#8451;</h2>
-            <p>{{ description }}</p>
+            <h2 style="color: rgb(233, 103, 231); font-weight: bolder;">{{ temperature }}&#8451;</h2>
+            <p style="color: rgb(55, 206, 78); font-weight: bolder;">{{ description }}</p>
           </ion-col>
+
         </ion-row>
+
         <ion-row>
+
           <ion-col>
-            <ion-icon name="water-outline"></ion-icon>
-            <p>Humidity: {{ humidity }}%</p>
+            <ion-icon name="water-outline" style="width: 30px; height: 30px"></ion-icon>
+            <p style="color: rgb(141, 169, 40); font-weight: bolder;">Humidity: {{ humidity }}%</p>
           </ion-col>
+
           <ion-col>
-            <ion-icon name="speedometer-outline"></ion-icon>
-            <p>Wind: {{ windSpeed }} km/h</p>
+            <ion-icon name="speedometer-outline" style="width: 30px; height: 30px"></ion-icon>
+            <p style="color: rgb(160, 57, 57); font-weight: bolder;">Wind: {{ windSpeed }} km/h</p>
           </ion-col>
+
         </ion-row>
+
       </ion-grid>
 
     </ion-card-content>

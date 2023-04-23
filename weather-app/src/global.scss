@@ -52,6 +52,10 @@
   border-radius: 20px;
 }
 
+.form ion-input :focus{
+  background-color: aquamarine;
+}
+
 ion-popover {
   --background: rgba(94, 212, 232, 0.6);
   --backdrop-opacity: 0.6;
