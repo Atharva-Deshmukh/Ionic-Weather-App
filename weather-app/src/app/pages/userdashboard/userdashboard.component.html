@@ -49,7 +49,16 @@
           </ion-content>
         </ion-menu>
 
-        <button (click)="getPuneWeather()">Pune weather</button>
+        <ion-list>
+          <ion-item>
+            <ion-select aria-label="City" placeholder="Select Your City" (ionChange)="getOptionValue($event)">
+              <ion-select-option value="Pune">Pune</ion-select-option>
+              <ion-select-option value="Mumbai">Mumbai</ion-select-option>
+              <ion-select-option value="Nagpur">Nagpur</ion-select-option>
+              <ion-select-option value="Chandrapur">Chandrapur</ion-select-option>
+            </ion-select>
+          </ion-item>
+      </ion-list>
   </ion-content>
 
 

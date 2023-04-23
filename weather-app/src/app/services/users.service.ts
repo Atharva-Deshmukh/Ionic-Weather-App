@@ -3,8 +3,6 @@ import { Injectable } from '@angular/core';
 import { User } from '../User';
 import { Router } from '@angular/router';
 import { BehaviorSubject } from 'rxjs';
-import { Login } from '../Login';
-import { stringify } from 'querystring';
 
 @Injectable({
   providedIn: 'root'
@@ -39,6 +37,10 @@ export class UsersService {
     }
     });
 
+  }
+
+  getWeatherService() {
+    
   }
 
 }

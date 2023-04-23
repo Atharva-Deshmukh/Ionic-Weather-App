@@ -12,6 +12,16 @@ export class UserdashboardComponent  implements OnInit {
 
   constructor(private router: Router, private http: HttpClient) { }
 
+  optionSelected: any;
+  getOptionValue(event: any) {
+    console.log(event.detail.value);
+    this.optionSelected = event.detail.value;
+
+    if(this.optionSelected === 'Pune') {
+      this.getPuneWeather();
+    }
+  }
+
   userDataString: any;
   userName: string = '';
   useremail: any;
