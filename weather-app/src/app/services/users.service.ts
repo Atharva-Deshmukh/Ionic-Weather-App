@@ -9,7 +9,14 @@ import { BehaviorSubject } from 'rxjs';
 })
 export class UsersService {
 
+  APIkey$: BehaviorSubject<string> = new BehaviorSubject<string>('5c86033098ae966dd0e9f3ce5aefa8be');
+  lat$: BehaviorSubject<number> = new BehaviorSubject<number>(0.00000);
+  lon$: BehaviorSubject<number> = new BehaviorSubject<number>(0.00000);
+  city$: BehaviorSubject<string> = new BehaviorSubject<string>('Enter City');
+
   loginSuccess$: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
+
+  weatherData: any;
 
   constructor(private http: HttpClient, private router: Router) { }
 
@@ -39,8 +46,22 @@ export class UsersService {
 
   }
 
-  getWeatherService() {
-    
+  getWeatherService(lat: number, lon: number, APIkey: string) {
+
+    // UPDATE values from dashboard
+    this.lat$.next(lat);
+    this.lon$.next(lon);
+    this.APIkey$.next(APIkey);
+
+    return this.http.get(`https://api.openweathermap.org/data/2.5/weather/?lat=${this.lat$}&lon=${this.lon$}&appid=${this.APIkey$}`).subscribe((result) => {
+      if(result) {
+        console.warn('weather data -> ', result);
+        this.weatherData = result;
+        console.warn('main -> ',this.weatherData.main);
+
+      }
+    });
+
   }
 
 }
