@@ -5,6 +5,7 @@ import { SignupPageComponent } from './pages/signup-page/signup-page.component';
 import { UserdashboardComponent } from './pages/userdashboard/userdashboard.component';
 import { UserGuardGuard } from './Authguards/user-guard.guard';
 import { HomePage } from './home/home.page';
+import { WeatherReportComponent } from './pages/weather-report/weather-report.component';
 
 const routes: Routes = [
   {
@@ -26,6 +27,11 @@ const routes: Routes = [
   {
     path: 'user-dashboard',
     component: UserdashboardComponent,
+    canActivate: [UserGuardGuard]
+  },
+  {
+    path: 'weather-report',
+    component: WeatherReportComponent,
     canActivate: [UserGuardGuard]
   },
 ];

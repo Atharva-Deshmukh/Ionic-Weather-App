@@ -5,6 +5,7 @@ import { RouteReuseStrategy } from '@angular/router';
 import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
 
 import { AppComponent } from './app.component';
+import { WeatherReportComponent } from './pages/weather-report/weather-report.component';
 import { UserdashboardComponent } from './pages/userdashboard/userdashboard.component';
 import { LoginPageComponent } from './pages/login-page/login-page.component';
 import { SignupPageComponent } from './pages/signup-page/signup-page.component';
@@ -20,7 +21,8 @@ import { FormsModule } from '@angular/forms';
     AppComponent,
     LoginPageComponent,
     SignupPageComponent,
-    UserdashboardComponent
+    UserdashboardComponent,
+    WeatherReportComponent
   ],
   imports:
   [

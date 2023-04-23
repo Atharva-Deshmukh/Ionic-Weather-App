@@ -1,0 +1,43 @@
+<ion-header [translucent]="true" style="background-color: aquamarine;">
+  <ion-toolbar>
+    <ion-title style="text-align: center; color: rgb(15, 181, 125); font-weight: bolder;">
+      Weather App - weather Report Component
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-card>
+
+    <ion-card-header>
+      <ion-card-title>For City -> {{ city }}</ion-card-title>
+    </ion-card-header>
+
+    <ion-card-content>
+
+      <ion-grid>
+        <ion-row>
+          <ion-col>
+            <img [src]="weatherIcon" [alt]="description" />
+          </ion-col>
+          <ion-col>
+            <h2>{{ temperature }}&#8451;</h2>
+            <p>{{ description }}</p>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col>
+            <ion-icon name="water-outline"></ion-icon>
+            <p>Humidity: {{ humidity }}%</p>
+          </ion-col>
+          <ion-col>
+            <ion-icon name="speedometer-outline"></ion-icon>
+            <p>Wind: {{ windSpeed }} km/h</p>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+      
+    </ion-card-content>
+  </ion-card>
+</ion-content>
