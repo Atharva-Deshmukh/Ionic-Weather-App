@@ -11,7 +11,7 @@ export class WeatherReportComponent  implements OnInit {
   constructor(private userService: UsersService) { }
 
   city: any;
-  weatherIcon: any;
+  weatherIconId: any;
   description: any;
   humidity: any;
   windSpeed: any;
@@ -20,7 +20,7 @@ export class WeatherReportComponent  implements OnInit {
 
   ngOnInit() {
     this.city = this.userService.city$.getValue();
-    this.weatherIcon = this.userService.weatherIconId$.getValue();
+    this.weatherIconId = this.userService.weatherIconId$.getValue();
     this.description = this.userService.weatherDescription$.getValue();
     this.humidity = this.userService.humidity$.value;
     this.windSpeed = this.userService.windSpeed$.value;

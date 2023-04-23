@@ -19,7 +19,7 @@
       <ion-grid>
         <ion-row>
           <ion-col>
-            <img [src]="weatherIcon" [alt]="description" />
+            <img src="http://openweathermap.org/img/wn/{{weatherIconId}}@2x.png" [alt]="description" />
           </ion-col>
           <ion-col>
             <h2>{{ temperature }}&#8451;</h2>
@@ -37,7 +37,7 @@
           </ion-col>
         </ion-row>
       </ion-grid>
-      
+
     </ion-card-content>
   </ion-card>
 </ion-content>
